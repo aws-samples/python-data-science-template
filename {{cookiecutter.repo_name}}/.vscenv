@@ -1,0 +1,11 @@
+# Also ensure .vscode/settings.json has:
+#
+# {
+#   "terminal.integrated.env.osx": {
+#     "PYTHONPATH": "${workspaceFolder}/src:${env:PYTHONPATH}"
+#   },
+#   "terminal.integrated.env.linux": {
+#     "PYTHONPATH": "${workspaceFolder}/src:${env:PYTHONPATH}"
+#   }
+# }
+PYTHONPATH=src:${PYTHONPATH}

@@ -1,0 +1,44 @@
+# A cookiecutter template for Python data science project
+
+## Pre-requisite
+
+You need to have the cli `cookiecutter` available. Please see its installation
+instructions [here](https://cookiecutter.readthedocs.io/en/latest/installation.html).
+
+## To start a new project, run
+
+```bash
+cookiecutter https://github.com/aws-samples/python-data-science-template
+```
+
+By using this template, your data science project is auto-generated as follows:
+
+```
+.
+|-- notebooks                    # A directory to place all notebooks files.
+|   |-- *.ipynb
+|   `-- ipython_config.py        # IPython magic to let *.ipynb treat src/ as PYTHONPATH
+|-- setup.py                     # To pip install your Python module (if module name specified to cookiecutter)
+|-- src
+|   |-- my_custom_module         # A custom module
+|   `-- source_dir               # SageMaker training job's source_dir and entrypoint script
+|-- tests                        # Unit tests for SageMaker's ray launcher
+
+# These sample configuration files are auto-generated too:
+|-- .editorconfig                # Sample editor config (for IDE / editor that support this)
+|-- .gitattributes               # Sample .gitattributes
+|-- .gitignore                   # Sample .gitignore
+|-- .pre-commit-config.yaml      # Sample precommit hooks
+|-- .vscenv                      # Sample dot env with PYTHONPATH config (for IDE /editor that support this)
+|-- LICENSE                      # Boilperplate (auto-generated content based on what specified to cookiecutter)
+|-- README.md                    # Template for you to customize
+|-- ipython_config.py            # Sample copy of ipython_config.py (same as notebook/ipython_config.py)
+|-- pyproject.toml               # Sample setting for Python code formatter
+`-- tox.ini                      # Sample configurations for Python toolchains
+```
+
+This structure has been used in a few other places as well, e.g.,
+[aws-samples/sagemaker-rl-energy-storage-system](https://github.com/aws-samples/sagemaker-rl-energy-storage-system)
+and [aws-samples/amazon-sagemaker-gluonts-entrypoint](https://github.com/aws-samples/amazon-sagemaker-gluonts-entrypoint).
+Feel free to look at those repositories and observed their project structure
+documented in their `README.md`.
