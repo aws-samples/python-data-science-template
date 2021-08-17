@@ -42,3 +42,11 @@ This structure has been used in a few other places as well, e.g.,
 and [aws-samples/amazon-sagemaker-gluonts-entrypoint](https://github.com/aws-samples/amazon-sagemaker-gluonts-entrypoint).
 Feel free to look at those repositories and observed their project structure
 documented in their `README.md`.
+
+## Security
+
+See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+
+## License
+
+This library is licensed under the MIT-0 License. See the LICENSE file.
