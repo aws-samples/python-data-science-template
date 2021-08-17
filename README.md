@@ -2,10 +2,14 @@
 
 ## Pre-requisite
 
-You need to have the cli `cookiecutter` available. Please see its installation
-instructions [here](https://cookiecutter.readthedocs.io/en/latest/installation.html).
+You need to have the cli `cookiecutter` available on your Python environemnt.
+Please see its installation instructions
+[here](https://cookiecutter.readthedocs.io/en/latest/installation.html).
 
-## To start a new project, run
+## Usage
+
+To start a new project, you can run the following commands on your Python
+environment.
 
 ```bash
 cookiecutter https://github.com/aws-samples/python-data-science-template
