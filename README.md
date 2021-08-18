@@ -2,14 +2,14 @@
 
 ## Pre-requisite
 
-You need to have the cli `cookiecutter` available on your Python environemnt.
+You need to have the cli `cookiecutter` available on your Python environment.
 Please see its installation instructions
 [here](https://cookiecutter.readthedocs.io/en/latest/installation.html).
 
 ## Usage
 
-To start a new project, you can run the following commands on your Python
-environment.
+To generate a directory structure for a new data science project, you can run
+the following commands on your Python environment.
 
 ```bash
 cookiecutter https://github.com/aws-samples/python-data-science-template
