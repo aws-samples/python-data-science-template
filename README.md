@@ -15,6 +15,20 @@ the following commands on your Python environment.
 cookiecutter https://github.com/aws-samples/python-data-science-template
 ```
 
+Alternatively, you can also clone this repository to use a local template:
+
+```bash
+# Clone to a local repository in the current directory.
+git clone https://github.com/aws-samples/python-data-science-template.git
+
+# The above command creates python-data-science-template/ in the current dir.
+
+# Use the local repo to generate project structure
+cookiecutter python-data-science-template
+```
+
+## Project Structure
+
 By using this template, your data science project is auto-generated as follows:
 
 ```
