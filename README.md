@@ -9,7 +9,7 @@ Please see its installation instructions
 ## Usage
 
 To generate a directory structure for a new data science project, you can run
-the following commands on your Python environment.
+the following commands in your Python environment.
 
 ```bash
 cookiecutter https://github.com/aws-samples/python-data-science-template
@@ -58,7 +58,7 @@ By using this template, your data science project is auto-generated as follows:
 This structure has been used in a few other places as well, e.g.,
 [aws-samples/sagemaker-rl-energy-storage-system](https://github.com/aws-samples/sagemaker-rl-energy-storage-system)
 and [aws-samples/amazon-sagemaker-gluonts-entrypoint](https://github.com/aws-samples/amazon-sagemaker-gluonts-entrypoint).
-Feel free to look at those repositories and observed their project structure
+Feel free to look at those repositories and observe the project structure
 documented in their `README.md`.
 
 ## Security
