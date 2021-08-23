@@ -15,6 +15,8 @@ the following commands in your Python environment.
 cookiecutter https://github.com/aws-samples/python-data-science-template
 ```
 
+![](./setup-example.gif)
+
 Alternatively, you can also clone this repository to use a local template:
 
 ```bash
