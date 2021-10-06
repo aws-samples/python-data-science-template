@@ -63,6 +63,33 @@ and [aws-samples/amazon-sagemaker-gluonts-entrypoint](https://github.com/aws-sam
 Feel free to look at those repositories and observe the project structure
 documented in their `README.md`.
 
+## Related Projects
+
+Ready to start your new data science project on AWS? If so, you may want to
+check on these related samples.
+
+1. Do you like to work on EC2 instances? Then why don't you check out these
+   [simple template](https://github.com/aws-samples/ec2-data-science-vim-tmux-zsh/)
+   to setup basic Vim, Tmux, Zsh for the Deep Learning AMI Amazon Linux 2 for
+   data scientsts.
+
+2. Do you like to work on SageMaker classic notebook instances? Then why don't you check out the
+   [one-liner customization command](https://github.com/aws-samples/amazon-sagemaker-notebook-instance-customization)
+   that quickly applies common tweaks on a fresh (i.e., newly created or
+   rebooted) SageMaker classic notebook instance, to make the notebook instance
+   a little bit more ergonomic for prolonged usage.
+
+3. Are you loooking for a quickstart to accelerate the delivery of custom ML
+   solutions to production, without having to make too many design choices? Then
+   why don't you check out the [ML Max repo](https://github.com/awslabs/mlmax/)
+   which includes templates for four pillars: training pipeline, inference
+   pipeline, development environment and data management/ETL.
+
+4. Are you tired of repeatedly writing the same boilerplate codes for common,
+   tactical data science tasks? Then why don't you check on the
+   [SageMaker meta-entrypoint utilities](https://github.com/aws-samples/amazon-sagemaker-entrypoint-utilities),
+   and the [smallmatter library](https://github.com/aws-samples/smallmatter-package).
+
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
