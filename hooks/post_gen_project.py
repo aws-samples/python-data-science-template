@@ -32,11 +32,15 @@ if license == "No license file":
     rm("LICENSE")
 
 # Display next steps.
+cwd = Path().resolve()
 message = [
     "#" * 80,
     "# Congratulations, your project has been initialized!",
     "#",
+    f"# The generated project is located at {cwd}",
+    "#",
     "# Recommended next steps:",
+    f"# - cd {cwd}",
     "# - git init (this is needed for the ipython_config.py magic to work)",
     "# - pre-commit autoupdate",
     "# - pre-commit install",
