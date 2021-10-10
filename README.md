@@ -40,9 +40,9 @@ By using this template, your data science project is auto-generated as follows:
 |   `-- ipython_config.py        # IPython magic to let *.ipynb treat src/ as PYTHONPATH
 |-- setup.py                     # To pip install your Python module (if module name specified to cookiecutter)
 |-- src
-|   |-- my_custom_module         # A custom module
-|   `-- source_dir               # SageMaker training job's source_dir and entrypoint script
-|-- tests                        # Unit tests for SageMaker's ray launcher
+|   |-- my_custom_module         # Your custom module
+|   `-- source_dir               # You can further create this subdir for SageMaker entrypoint scripts
+|-- tests                        # Unit tests
 
 # These sample configuration files are auto-generated too:
 |-- .editorconfig                # Sample editor config (for IDE / editor that support this)
