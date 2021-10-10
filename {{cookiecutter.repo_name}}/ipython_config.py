@@ -9,7 +9,7 @@ from typing import Union
 
 def sys_path_append(o: Union[str, os.PathLike]) -> str:
     posix_path: str = o.as_posix() if isinstance(o, Path) else Path(o).as_posix()
-    return 'sys.path.append("{}")'.format(posix_path)
+    return 'sys.path.insert(0, "{}")'.format(posix_path)
 
 
 _pythonpath = [
