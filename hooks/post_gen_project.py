@@ -41,7 +41,7 @@ message = [
     "#",
     "# Recommended next steps:",
     f"# - cd {cwd}",
-    "# - git init (this is needed for the ipython_config.py magic to work)",
+    "# - git init",
     "# - pre-commit autoupdate",
     "# - pre-commit install",
     "# - review README.md",

@@ -8,8 +8,7 @@
 {{cookiecutter.repo_name}}
 |-- bin                          # CLI scripts
 |-- notebooks
-|   |-- *.ipynb                  # Jupyter notebooks
-|   `-- ipython_config.py        # IPython magic to let *.ipynb treat src/ as PYTHONPATH
+|   `-- *.ipynb                  # Jupyter notebooks
 {% if cookiecutter.package_name != "" -%}
 |-- setup.py                     # To install {{cookiecutter.repo_name}} as a Python module
 {% endif -%}
@@ -27,7 +26,6 @@
 |-- .vscenv                      # Dot env with PYTHONPATH config (for IDE /editor that support this)
 |-- LICENSE                      # License
 |-- README.md                    # Template document
-|-- ipython_config.py            # A copy of ipython_config.py (same as notebook/ipython_config.py)
 |-- pyproject.toml               # Setting for Python code formatter
 `-- tox.ini                      # Settings for select Python toolchains
 ```
