@@ -36,8 +36,7 @@ By using this template, your data science project is auto-generated as follows:
 ```
 .
 |-- notebooks                    # A directory to place all notebooks files.
-|   |-- *.ipynb
-|   `-- ipython_config.py        # IPython magic to let *.ipynb treat src/ as PYTHONPATH
+|   `-- *.ipynb
 |-- setup.py                     # To pip install your Python module (if module name specified to cookiecutter)
 |-- src
 |   |-- my_custom_module         # Your custom module
@@ -52,7 +51,6 @@ By using this template, your data science project is auto-generated as follows:
 |-- .vscenv                      # Sample dot env with PYTHONPATH config (for IDE /editor that support this)
 |-- LICENSE                      # Boilperplate (auto-generated content based on what specified to cookiecutter)
 |-- README.md                    # Template for you to customize
-|-- ipython_config.py            # Sample copy of ipython_config.py (same as notebook/ipython_config.py)
 |-- pyproject.toml               # Sample setting for Python code formatter
 `-- tox.ini                      # Sample configurations for Python toolchains
 ```
