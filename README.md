@@ -36,10 +36,12 @@ By using this template, your data science project is auto-generated as follows:
 ```
 .
 |-- notebooks                    # A directory to place all notebooks files.
-|   `-- *.ipynb
+|   |-- *.ipynb
+|   `-- my_nb_path.py            # Imported by *.ipynb to treat src/ as PYTHONPATH
 |-- setup.py                     # To pip install your Python module (if module name specified to cookiecutter)
 |-- src
 |   |-- my_custom_module         # Your custom module
+|   |-- my_nb_color.py           # Imported by *.ipynb to colorize their outputs
 |   `-- source_dir               # You can further create this subdir for SageMaker entrypoint scripts
 |-- tests                        # Unit tests
 

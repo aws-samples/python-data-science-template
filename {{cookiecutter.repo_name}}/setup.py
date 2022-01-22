@@ -1,3 +1,8 @@
+raise ValueError(
+    "Baseline setup.py from cookiecutter aws-samples/python-data-science-template. "
+    "Please review and modify accordingly, then remove this exception"
+)
+
 import os
 from typing import List
 
@@ -54,9 +59,4 @@ setup(
     ],
     python_requires=">=3.6.0",
     install_requires=required_packages,
-)
-
-raise ValueError(
-    "Baseline setup.py from cookiecutter verdimrc/py-ds-template. "
-    "Please review and modify accordingly, then remove this exception"
 )
