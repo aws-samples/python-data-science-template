@@ -1,7 +1,7 @@
 """Allow notebooks to import custom modules at a few pre-defined places within this project's
 git repository.
 
-When imported, adds ``GITROOT``, ``GITROOT/src/``, and ``GITROOT/notebooks`` to `sys.path`.
+When imported, adds ``GITROOT``, ``GITROOT/src``, and ``GITROOT/notebooks`` to `sys.path`.
 
 Place this file in the same directory as your ``.ipynb`` files. If ``.ipynb`` files are organized
 into subfolders, please ensure this file is presented in each subfolder. Example:
@@ -9,13 +9,13 @@ into subfolders, please ensure this file is presented in each subfolder. Example
 .. code-block:: bash
 
     GITROOT
-    |-- .git                   # GITROOT/ must be a git repository
-    |-- notebooks              # Jupyter notebooks
+    |-- .git                   # Signify this is a git repository
+    |-- notebooks              # Parent folder of Jupyter notebooks
     |   |-- folder-a
-    |   |   |-- my_nb_path.py  # Importable by *.ipynb in this subfolder
+    |   |   |-- my_nb_path.py  # Importable by nb-abc.ipynb and nb-xyz.ipynb
     |   |   |-- nb-abc.ipynb
     |   |   `-- nb-xyz.ipynb
-    |   |-- my_nb_path.py      # Importable by *.ipynb in this subfolder
+    |   |-- my_nb_path.py      # Importable by nb-01.ipynb and nb-02.ipynb
     |   |-- nb-01.ipynb
     |   `-- nb-02.ipynb
     `-- src
@@ -25,22 +25,20 @@ into subfolders, please ensure this file is presented in each subfolder. Example
 
 Usage by ``.ipynb``:
 
-.. code-block:: python
-
-    # Allow this notebook to import from ``GITROOT/``, ``GITROOT/src/``, and
-    # ``GITROOT/notebooks``.
-    import my_nb_path
-
-    # Test-drive importing a custom module under ``GITROOT/src/``.
-    import my_custom_module
+    >>> # Allow this notebook to import from GITROOT, GITROOT/src, and GITROOT/notebooks.
+    >>> # This module must be imported before importing any other custom modules under GITROOT.
+    >>> # The isort directive prevents the statement to be moved around when isort is used.
+    >>> import my_nb_path  # isort: skip
+    >>>
+    >>> # Test-drive importing a custom module under GITROOT/src.
+    >>> import my_custom_module
 
 Background: we used to rely on ``ipython_config.py`` in the current working directory files.
-However, IPython 8.0.1, 7.31.1 and 5.11 onwards disable this approach to prevent potential
-Execution with Unnecessary Privileges, as described
+However, IPython 8.0.1+, 7.31.1+ and 5.11+ disable this behavior for security reason as described
 [here](https://ipython.readthedocs.io/en/stable/whatsnew/version8.html#ipython-8-0-1-cve-2022-21699).
 
-So now, each ``.ipynb`` must explicitly modify its own `sys.path`, and this module is provided for
-convenience of writing such a logic.
+So now, each ``.ipynb`` must explicitly modify its own `sys.path` which is what this module offers
+as convenience.
 """
 import os
 import subprocess
