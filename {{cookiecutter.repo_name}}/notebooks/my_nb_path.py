@@ -33,8 +33,8 @@ Usage by ``.ipynb``:
     >>> # Test-drive importing a custom module under GITROOT/src.
     >>> import my_custom_module
 
-Background: we used to rely on ``ipython_config.py`` in the current working directory files.
-However, IPython 8.0.1+, 7.31.1+ and 5.11+ disable this behavior for security reason as described
+Background: we used to rely on ``ipython_config.py`` in the current working directory. However,
+IPython 8.0.1+, 7.31.1+ and 5.11+ disable this behavior for security reason as described
 [here](https://ipython.readthedocs.io/en/stable/whatsnew/version8.html#ipython-8-0-1-cve-2022-21699).
 
 So now, each ``.ipynb`` must explicitly modify its own `sys.path` which is what this module offers
