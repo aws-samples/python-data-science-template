@@ -8,14 +8,16 @@
 {{cookiecutter.repo_name}}
 |-- bin                          # CLI scripts
 |-- notebooks
-|   `-- *.ipynb                  # Jupyter notebooks
+|   |-- *.ipynb                  # Jupyter notebooks
+|   `-- my_nb_path.py            # Imported by *.ipynb to treat src/ as PYTHONPATH
 {% if cookiecutter.package_name != "" -%}
 |-- setup.py                     # To install {{cookiecutter.repo_name}} as a Python module
 {% endif -%}
 |-- src                          # Python modules developed in this project
 {% if cookiecutter.package_name != "" -%}
-|   `-- {{cookiecutter.repo_name}}
+|   |-- {{cookiecutter.repo_name}}
 {% endif -%}
+|   `-- my_nb_color.py           # Imported by *.ipynb to colorize their outputs
 `-- tests                        # Unit tests
 
 # Miscellaneous files
