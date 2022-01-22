@@ -50,7 +50,7 @@ if license != "No license file":
     message.append("# - review LICENSE")
 if package_name != "":
     message += [
-        "# - review and update setup.py, then remove the exception at the end.",
+        "# - review and update setup.py, then remove the exception at the start.",
         "# - consider to adopt versioneer to version your package.",
     ]
 message += [

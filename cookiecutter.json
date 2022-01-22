@@ -8,9 +8,5 @@
     "MIT License",
     "Apache-2.0 License"
   ],
-  "python_interpreter": [
-    "python3",
-    "python"
-  ],
   "package_name": ""
 }
