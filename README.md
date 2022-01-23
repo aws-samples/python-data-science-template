@@ -1,8 +1,8 @@
-# A cookiecutter template for Python data science project
+# A cookiecutter template for Python data science projects
 
 ## Pre-requisite
 
-You need to have the cli `cookiecutter` available on your Python environment.
+You need to have the cli `cookiecutter` available in your Python environment.
 Please see its installation instructions
 [here](https://cookiecutter.readthedocs.io/en/latest/installation.html).
 
@@ -46,12 +46,12 @@ By using this template, your data science project is auto-generated as follows:
 |-- tests                        # Unit tests
 
 # These sample configuration files are auto-generated too:
-|-- .editorconfig                # Sample editor config (for IDE / editor that support this)
+|-- .editorconfig                # Sample editor config (for IDE / editor that supports this)
 |-- .gitattributes               # Sample .gitattributes
 |-- .gitignore                   # Sample .gitignore
 |-- .pre-commit-config.yaml      # Sample precommit hooks
-|-- .vscenv                      # Sample dot env with PYTHONPATH config (for IDE /editor that support this)
-|-- LICENSE                      # Boilperplate (auto-generated content based on what specified to cookiecutter)
+|-- .vscenv                      # Sample dot env with PYTHONPATH config (for IDE /editor that supports this)
+|-- LICENSE                      # Boilperplate (auto-generated content based on what you specified to cookiecutter)
 |-- README.md                    # Template for you to customize
 |-- pyproject.toml               # Sample setting for Python code formatter
 `-- tox.ini                      # Sample configurations for Python toolchains
