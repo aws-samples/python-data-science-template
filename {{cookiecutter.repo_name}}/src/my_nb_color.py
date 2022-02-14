@@ -32,7 +32,11 @@ else:
     rich.reconfigure(force_terminal=True, force_jupyter=False)
     rich.pretty.install()
     print = cast(Callable, rich.get_console().out)
-    pprint = rich.get_console().print
+    _pprint = rich.get_console().print
+
+    def pprint(*args, **kwargs):
+        kwargs["soft_wrap"] = True
+        _pprint(*args, **kwargs)
 
 
 # Try to setup loguru.
