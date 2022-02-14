@@ -5,12 +5,12 @@ Dependencies: `loguru`, `rich`.
 Basic usage by an ``.ipynb``:
 
     >>> # Colorize notebook outputs
-    >>> from my_nb_color import print, rprint, oprint
+    >>> from my_nb_color import print, pprint, oprint
     >>>
     >>> # Test-drive different behavior of print functionalities
     >>> d = {"A" * 200, "B" * 200}
     >>> print("Colored:", d)
-    >>> rprint("Colored and wrapped:", d)
+    >>> pprint("Colored and wrapped:", d)
     >>> oprint("Plain (i.e., Python's original):", d)
     >>> display(d)
     >>>
@@ -26,7 +26,7 @@ from typing import Callable, cast
 try:
     import rich
 except ModuleNotFoundError:
-    print = rprint = oprint = print
+    print = pprint = oprint = print
 else:
     oprint = print  # In-case plain old behavior is needed
     rich.reconfigure(force_terminal=True, force_jupyter=False)
