@@ -20,7 +20,7 @@ Basic usage by an ``.ipynb``:
     >>>     f("Hello World!")
 """
 import sys
-
+from typing import Callable, cast
 
 # Try to setup rich.
 try:
@@ -31,8 +31,8 @@ else:
     oprint = print  # In-case plain old behavior is needed
     rich.reconfigure(force_terminal=True, force_jupyter=False)
     rich.pretty.install()
-    print = rich.get_console().out
-    rprint = rich.get_console().print
+    print = cast(Callable, rich.get_console().out)
+    pprint = rich.get_console().print
 
 
 # Try to setup loguru.
