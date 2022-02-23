@@ -29,16 +29,21 @@ except ModuleNotFoundError:
     print = pprint = oprint = print
 else:
     oprint = print  # In-case plain old behavior is needed
-    rich.reconfigure(force_terminal=True, force_jupyter=False)
+    rich.reconfigure(force_terminal=True)
     rich.pretty.install()
-    print = cast(Callable, rich.get_console().out)
-    _pprint = rich.get_console().print
+
+    _console = rich.console.Console(force_terminal=True, force_jupyter=False)
+    print = cast(Callable, _console.out)
+    _pprint = _console.print
 
     def pprint(*args, **kwargs):
         kwargs["soft_wrap"] = True
         _pprint(*args, **kwargs)
 
-    inspect = rich.inspect
+    def inspect(*args, **kwargs):
+        if "console" not in kwargs:
+            kwargs["console"] = _console
+        rich.inspect(*args, **kwargs)
 
 # Try to setup loguru.
 try:
