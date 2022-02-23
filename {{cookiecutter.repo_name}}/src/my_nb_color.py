@@ -45,6 +45,7 @@ else:
             kwargs["console"] = _console
         rich.inspect(*args, **kwargs)
 
+
 # Try to setup loguru.
 try:
     from loguru import logger
