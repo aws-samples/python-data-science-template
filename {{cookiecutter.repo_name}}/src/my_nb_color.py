@@ -38,6 +38,7 @@ else:
         kwargs["soft_wrap"] = True
         _pprint(*args, **kwargs)
 
+    inspect = rich.inspect
 
 # Try to setup loguru.
 try:
