@@ -30,6 +30,7 @@ Basic usage by an ``.ipynb``:
     >>>     f("Hello World!")
 """
 import sys
+import warnings
 from typing import Callable, cast
 
 # Try to setup rich.
@@ -37,6 +38,10 @@ try:
     import rich
 except ModuleNotFoundError:
     print = pprint = oprint = print
+
+    def inspect(*args, **kwargs):
+        warnings.warn(f"{__name__}.inspect() requires rich.")
+
 else:
     oprint = print  # In-case plain old behavior is needed
 
