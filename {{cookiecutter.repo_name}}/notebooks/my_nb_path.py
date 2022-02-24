@@ -46,10 +46,12 @@ import sys
 from pathlib import Path
 from typing import Union
 
+
 def sys_path_append(o: Union[str, os.PathLike]) -> None:
     posix_path: str = o.as_posix() if isinstance(o, Path) else Path(o).as_posix()
     if posix_path not in sys.path:
         sys.path.insert(0, posix_path)
+
 
 # Add GIT_ROOT/ and a few other subdirs
 _p = subprocess.run(
