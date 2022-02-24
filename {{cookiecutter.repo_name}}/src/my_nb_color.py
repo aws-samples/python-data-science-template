@@ -20,6 +20,9 @@ Basic usage by an ``.ipynb``:
     >>> df.plot();
     >>>
     >>> inspect(df)
+    >>> inspect(print)
+    >>> inspect(pprint)
+    >>> inspect(inspect)
     >>>
     >>> # Test-drive loguru
     >>> from loguru import logger
