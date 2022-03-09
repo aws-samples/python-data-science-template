@@ -43,11 +43,10 @@ except ModuleNotFoundError:
         warnings.warn(f"{__name__}.inspect() requires rich.")
 
 else:
+    from rich.console import Console
+
     oprint = print  # In-case plain old behavior is needed
-
-    rich.reconfigure(force_terminal=True, force_jupyter=False)
-    _console = rich.get_console()
-
+    _console = Console(force_terminal=True, force_jupyter=False)
     print = cast(Callable, _console.out)
 
     def pprint(*args, soft_wrap=True, **kwargs):
@@ -73,7 +72,7 @@ else:
 
             rich.inspect(obj, *args, console=self.console, **kwargs)
 
-    inspect = Inspect()
+    inspect = cast(Callable, Inspect())
 
     def opinionated_rich_pretty_install():
         """Intercept any post-ipython renderings.
@@ -82,9 +81,14 @@ else:
         and as html), (ii) do not show ``<Figure ...>`` on matplotlib figures.
         """
         from IPython.core.formatters import BaseFormatter
+        from rich import get_console
+        from rich.abc import RichRenderable
+        from rich.console import ConsoleRenderable
+        from rich.pretty import Pretty, _safe_isinstance
 
-        class RichFormatterWrapper(BaseFormatter):
-            # See: rich.pretty.install._ipy_display_hook()
+        class MyRichFormatter(BaseFormatter):
+            # Based on: rich.pretty.install._ipy_display_hook()
+            # Customized behaviors are described in the comments.
             reprs = [
                 "_repr_html_",
                 "_repr_markdown_",
@@ -96,30 +100,52 @@ else:
                 "_repr_mimebundle_",
             ]
 
-            def __init__(self, rich_formatter):
-                self.rich_formatter = rich_formatter
-
             def __call__(self, value, *args, **kwargs):
-                for repr_name in self.reprs:
-                    try:
-                        repr_method = getattr(value, repr_name)
-                        repr_method()
-                    except (
-                        AttributeError,  # value object has does not have the repr attribute
-                        Exception,  # any other error
-                    ) as e:
-                        continue
-                    else:
-                        return
-                else:
-                    # None of the ipython methods work, hence let rich takes over
-                    self.rich_formatter(value, *args, **kwargs)
+                console = get_console()
+                if console.is_jupyter:
+                    for repr_name in self.reprs:
+                        try:
+                            repr_method = getattr(value, repr_name)
+                            _ = repr_method()
+                        except (
+                            AttributeError,  # value object has does not have the repr attribute
+                            Exception,  # any other error
+                        ) as e:
+                            continue
+                        else:
+                            # Customized behavior: once rendered by ipython's repr, do no further.
+                            return
 
+                # Customized behavior: when None of the ipython repr work, output color ascii.
+                console = Console(force_terminal=True, force_jupyter=False)
+                # End of customized behavior
+
+                # certain renderables should start on a new line
+                if _safe_isinstance(value, ConsoleRenderable):
+                    console.line()
+
+                console.print(
+                    value
+                    if _safe_isinstance(value, RichRenderable)
+                    else Pretty(
+                        value,
+                        overflow="ignore",
+                        indent_guides=False,
+                        max_length=None,
+                        max_string=None,
+                        expand_all=False,
+                        margin=12,
+                    ),
+                    crop=False,
+                    new_line_start=True,
+                )
+
+        rich.reconfigure(force_terminal=True)
         rich.pretty.install()
         ipy_formatters = get_ipython().display_formatter.formatters
         rich_formatter = ipy_formatters["text/plain"]
         if rich_formatter.__module__ == "rich.pretty":
-            ipy_formatters["text/plain"] = RichFormatterWrapper(rich_formatter)
+            ipy_formatters["text/plain"] = MyRichFormatter()
 
     opinionated_rich_pretty_install()
 

@@ -131,3 +131,10 @@ venv.bak/
 derby.log
 metastore_db
 spark-warehouse
+
+# pytorch, tensorflow
+*.pt
+*.pth
+*.ckpt
+*.ckpt.*
+*.h5
