@@ -34,7 +34,7 @@ import warnings
 from typing import Callable, cast
 
 # Try to setup rich.
-try:
+try:  # noqa: C901
     import rich
 except ModuleNotFoundError:
     print = pprint = oprint = print
@@ -80,6 +80,7 @@ else:
         Known cases fixed (as of rich-11.2.0): (i) prevent pandas dataframe rendered twice (as text
         and as html), (ii) do not show ``<Figure ...>`` on matplotlib figures.
         """
+        from IPython import get_ipython
         from IPython.core.formatters import BaseFormatter
         from rich import get_console
         from rich.abc import RichRenderable
@@ -106,15 +107,16 @@ else:
                     for repr_name in self.reprs:
                         try:
                             repr_method = getattr(value, repr_name)
-                            _ = repr_method()
+                            repr_result = repr_method()
                         except (
                             AttributeError,  # value object has does not have the repr attribute
                             Exception,  # any other error
-                        ) as e:
+                        ):
                             continue
                         else:
                             # Customized behavior: once rendered by ipython's repr, do no further.
-                            return
+                            if repr_result is not None:
+                                return
 
                 # Customized behavior: when None of the ipython repr work, output color ascii.
                 console = Console(force_terminal=True, force_jupyter=False)
@@ -124,21 +126,23 @@ else:
                 if _safe_isinstance(value, ConsoleRenderable):
                     console.line()
 
-                console.print(
-                    value
-                    if _safe_isinstance(value, RichRenderable)
-                    else Pretty(
-                        value,
-                        overflow="ignore",
-                        indent_guides=False,
-                        max_length=None,
-                        max_string=None,
-                        expand_all=False,
-                        margin=12,
-                    ),
-                    crop=False,
-                    new_line_start=True,
-                )
+                with console.capture() as capture:
+                    console.print(
+                        value
+                        if _safe_isinstance(value, RichRenderable)
+                        else Pretty(
+                            value,
+                            overflow="ignore",
+                            indent_guides=False,
+                            max_length=None,
+                            max_string=None,
+                            expand_all=False,
+                            margin=12,
+                        ),
+                        crop=False,
+                        new_line_start=True,
+                    )
+                return capture.get()
 
         rich.reconfigure(force_terminal=True)
         rich.pretty.install()
