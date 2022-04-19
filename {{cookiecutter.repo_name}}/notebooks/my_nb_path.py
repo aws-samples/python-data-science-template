@@ -52,20 +52,24 @@ def sys_path_append(o: Union[str, os.PathLike]) -> None:
     if posix_path not in sys.path:
         sys.path.insert(0, posix_path)
 
+try:
+    # Add GIT_ROOT/ and a few other subdirs
+    _p = subprocess.run(
+        ["git", "rev-parse", "--show-toplevel"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT
+    )
 
-# Add GIT_ROOT/ and a few other subdirs
-_p = subprocess.run(
-    ["git", "rev-parse", "--show-toplevel"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT
-)
+    if _p.returncode == 0:
+        _git_root: str = _p.stdout[:-1].decode("utf-8")  # Remove trailing '\n'
+        _git_root_p = Path(_git_root)
 
-if _p.returncode == 0:
-    _git_root: str = _p.stdout[:-1].decode("utf-8")  # Remove trailing '\n'
-    _git_root_p = Path(_git_root)
-
-    my_sys_paths = [
-        _git_root_p,
-        _git_root_p / "src",
-        _git_root_p / "notebooks",
-    ]
-    for sp in my_sys_paths:
-        sys_path_append(sp)
+        my_sys_paths = [
+            _git_root_p,
+            _git_root_p / "src",
+            _git_root_p / "notebooks",
+        ]
+        for sp in my_sys_paths:
+            sys_path_append(sp)
+except Exception:
+    # Not a proper git: no CLI, not a git repo, ...
+    # So, don't do anything to sys.path
+    pass
