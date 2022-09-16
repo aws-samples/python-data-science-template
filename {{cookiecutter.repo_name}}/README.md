@@ -6,29 +6,32 @@
 
 ```text
 {{cookiecutter.repo_name}}
-|-- bin                          # CLI scripts
+|-- bin/                         # CLI scripts
 |-- notebooks
 |   |-- *.ipynb                  # Jupyter notebooks
 |   `-- my_nb_path.py            # Imported by *.ipynb to treat src/ as PYTHONPATH
-{% if cookiecutter.package_name != "" -%}
-|-- setup.py                     # To install {{cookiecutter.repo_name}} as a Python module
-{% endif -%}
+|-- requirements/                # Dependencies required by this project
 |-- src                          # Python modules developed in this project
 {% if cookiecutter.package_name != "" -%}
-|   |-- {{cookiecutter.repo_name}}
+|   |-- {{cookiecutter.package_name}}
 {% endif -%}
 |   `-- my_nb_color.py           # Imported by *.ipynb to colorize their outputs
-`-- tests                        # Unit tests
-
+|-- tests/                       # Unit tests
+{% if cookiecutter.package_name != "" -%}
+|-- MANIFEST.in                  # Required by setup.py
+|-- setup.py                     # To pip install {{cookiecutter.package_name}}
+{% endif %}
 # Miscellaneous files
 |-- .editorconfig                # Editor config (for IDE / editor that support this)
-|-- .gitattributes               # .gitattributes
-|-- .gitignore                   # .gitignore
+|-- .gitattributes               # Files that Git must give special treatments
+{% if cookiecutter.pre_commit == "advanced" -%}
+|-- .gitleaks.toml               # Configuration for Gitleaks tool
+{% endif -%}
+|-- .gitignore                   # Git ignore list
 |-- .pre-commit-config.yaml      # Precommit hooks
-|-- .vscenv                      # Dot env with PYTHONPATH config (for IDE /editor that support this)
 |-- LICENSE                      # License
 |-- README.md                    # Template document
-|-- pyproject.toml               # Setting for Python code formatter
+|-- pyproject.toml               # Settings for select Python toolchains
 `-- tox.ini                      # Settings for select Python toolchains
 ```
 

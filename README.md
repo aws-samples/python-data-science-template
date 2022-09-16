@@ -33,27 +33,30 @@ cookiecutter python-data-science-template
 
 By using this template, your data science project is auto-generated as follows:
 
-```
+```text
 .
+|-- bin/
 |-- notebooks                    # A directory to place all notebooks files.
 |   |-- *.ipynb
 |   `-- my_nb_path.py            # Imported by *.ipynb to treat src/ as PYTHONPATH
-|-- setup.py                     # To pip install your Python module (if module name specified to cookiecutter)
+|-- requirements/
 |-- src
 |   |-- my_custom_module         # Your custom module
 |   |-- my_nb_color.py           # Imported by *.ipynb to colorize their outputs
-|   `-- source_dir               # You can further create this subdir for SageMaker entrypoint scripts
-|-- tests                        # Unit tests
+|   `-- source_dir               # Additional codes such as SageMaker source dir
+|-- tests/                       # Unit tests
+|-- MANIFEST.in                  # Required by setup.py (if module name specified)
+|-- setup.py                     # To pip install your Python module (if module name specified)
 
 # These sample configuration files are auto-generated too:
 |-- .editorconfig                # Sample editor config (for IDE / editor that supports this)
 |-- .gitattributes               # Sample .gitattributes
+|-- .gitleaks.toml               # Sample Gitleaks config (if pre_commit is advanced)
 |-- .gitignore                   # Sample .gitignore
 |-- .pre-commit-config.yaml      # Sample precommit hooks
-|-- .vscenv                      # Sample dot env with PYTHONPATH config (for IDE /editor that supports this)
-|-- LICENSE                      # Boilperplate (auto-generated content based on what you specified to cookiecutter)
+|-- LICENSE                      # Boilperplate (auto-generated)
 |-- README.md                    # Template for you to customize
-|-- pyproject.toml               # Sample setting for Python code formatter
+|-- pyproject.toml               # Sample configurations for Python toolchains
 `-- tox.ini                      # Sample configurations for Python toolchains
 ```
 
