@@ -51,10 +51,10 @@ def flip_git(s: str) -> str:
 
 
 # Declare minimal set for installation
-required_packages: List[str] = read_requirements("requirements.txt")
+required_packages: List[str] = read_requirements("requirements/requirements.txt")
 extras = {
-    "dev": read_requirements("requirements-dev.txt"),
-    "test": read_requirements("requirements-test.txt"),
+    "dev": read_requirements("requirements/requirements-dev.txt"),
+    "test": read_requirements("requirements/requirements-test.txt"),
 }
 
 setup(
