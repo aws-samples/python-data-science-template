@@ -64,7 +64,7 @@ setup(
     include_package_data=True,
     version=_version,
     description="{{cookiecutter.description}}",
-    long_description=read("README.md"),
+    long_description="".join(read_lines("README.md")),
     author="{{cookiecutter.author_name}}",
     url=f"https://github.com/abcd/{_repo}/",
     download_url="",

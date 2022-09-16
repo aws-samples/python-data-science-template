@@ -66,10 +66,7 @@ repos:
     rev: v1.0.0
     hooks:
       - id: doc8
-
-  ##############################################################################
-  # NOTE: uncomment (i.e., remove '# ' to enable specific checks below.
-  ##############################################################################
+{%- if cookiecutter.pre_commit == "advanced" %}
   - repo: https://github.com/PyCQA/bandit
     rev: 1.7.4
     hooks:
@@ -87,3 +84,4 @@ repos:
             .tox|
             .venv
           )
+{%- endif %}
