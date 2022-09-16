@@ -1,7 +1,7 @@
-# raise ValueError(
-#     "Baseline setup.py from cookiecutter aws-samples/python-data-science-template. "
-#     "Please review and modify accordingly, then remove this exception"
-# )
+raise ValueError(
+    "Baseline setup.py from cookiecutter aws-samples/python-data-science-template. "
+    "Please review and modify accordingly, then remove this exception"
+)
 
 import os
 from typing import List
