@@ -1,2 +1,14 @@
 [tool.black]
 line-length = 100
+
+[tool.mypy]
+ignore_missing_imports = true
+show_error_codes = true
+files = "**/*.py"
+exclude = [
+    '^docs/.*',
+    '^build/.*',
+    '^venv/.*',
+    '^notebooks/.*',
+    '^src/my_nb_color.py',
+]

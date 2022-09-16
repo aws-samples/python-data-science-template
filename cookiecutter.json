@@ -8,5 +8,9 @@
     "MIT License",
     "Apache-2.0 License"
   ],
-  "package_name": ""
+  "package_name": "",
+  "pre_commit": [
+    "foundation",
+    "advanced"
+  ]
 }

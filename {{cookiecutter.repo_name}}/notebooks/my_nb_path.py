@@ -41,7 +41,7 @@ So now, each ``.ipynb`` must explicitly modify its own `sys.path` which is what 
 as convenience.
 """
 import os
-import subprocess
+import subprocess  # nosec: B404
 import sys
 from pathlib import Path
 from typing import Union
@@ -52,10 +52,13 @@ def sys_path_append(o: Union[str, os.PathLike]) -> None:
     if posix_path not in sys.path:
         sys.path.insert(0, posix_path)
 
+
 try:
     # Add GIT_ROOT/ and a few other subdirs
-    _p = subprocess.run(
-        ["git", "rev-parse", "--show-toplevel"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT
+    _p = subprocess.run(  # nosec: B603 B607
+        ["git", "rev-parse", "--show-toplevel"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
     )
 
     if _p.returncode == 0:
@@ -69,7 +72,7 @@ try:
         ]
         for sp in my_sys_paths:
             sys_path_append(sp)
-except Exception:
+except Exception:  # nosec: B110
     # Not a proper git: no CLI, not a git repo, ...
     # So, don't do anything to sys.path
     pass
