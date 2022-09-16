@@ -1,3 +1,5 @@
+.env.unversioned
+
 # vscode: retain launch.json for sample invocation
 .vscode/*
 !.vscode/launch.json
@@ -132,9 +134,10 @@ derby.log
 metastore_db
 spark-warehouse
 
-# pytorch, tensorflow
+# pytorch, tensorflow, tensorboard
 *.pt
-*.pth
+*.pt[ch]
 *.ckpt
 *.ckpt.*
 *.h5
+*.tfevents.*

@@ -1,0 +1,16 @@
+# Recommended additional modules for your dev venv
+ipykernel
+pre-commit
+black
+isort
+mypy
+autoflake
+flake8
+types-PyYAML
+types-tqdm
+types-setuptools
+ipdb
+ipywidgets
+rich
+sphinx-autobuild
+bump2version
