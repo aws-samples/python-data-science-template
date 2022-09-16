@@ -42,5 +42,4 @@ cookiecutter https://github.com/aws-samples/python-data-science-template
 
 ## License
 
-This library is licensed under the {{cookiecutter.open_source_license}}. See the
-`LICENSE` file.
+This library is licensed under the {{cookiecutter.open_source_license}}.{% if cookiecutter.open_source_license != "No license file" %} See the [LICENSE](LICENSE) file.{%- endif %}
