@@ -12,3 +12,6 @@ exclude = [
     '^notebooks/.*',
     '^src/my_nb_color.py',
 ]
+
+[tool.bandit]
+skips = ["B101"]

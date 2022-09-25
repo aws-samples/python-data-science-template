@@ -71,7 +71,8 @@ repos:
     rev: 1.7.4
     hooks:
       - id: bandit
-        args: [--recursive, --exclude, "test/*"]
+        args: [-c, pyproject.toml, --recursive, --exclude, "test/*"]
+        additional_dependencies: ["bandit[toml]"]
 
   # May need to run `export GOPROXY=direct` prior to `pre-commit install`
   - repo: https://github.com/zricethezav/gitleaks
