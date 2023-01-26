@@ -1,11 +1,9 @@
 # Recommended additional modules for your dev venv
 ipykernel
 pre-commit
+ruff
 black
-isort
 mypy
-autoflake
-flake8
 types-PyYAML
 types-tqdm
 types-setuptools

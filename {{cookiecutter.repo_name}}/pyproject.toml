@@ -15,3 +15,21 @@ exclude = [
 
 [tool.bandit]
 skips = ["B101"]
+
+[tool.ruff]
+select =["E", "F", "I", "UP", "RUF"]
+fixable = ["E", "F", "I", "UP", "RUF"]
+line-length = 100
+fix = true
+target-version = "py38"
+src = ["src"]
+ignore-init-module-imports = true
+ignore = ["E722", "RUF100"]
+extend-exclude = ["examples", "refdata", "test/refdata/"]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401", "RUF100"]
+
+[tool.ruff.isort]
+known-first-party = ["train", "inference"]
+extra-standard-library = ["smepu"]  # Best effort to approximate tox.ini:[isort]

@@ -1,15 +1,19 @@
 # A cookiecutter template for Python data science projects
 
+Initialize for a modular, Python-based data science project, with opinionated linters configuration.
+
+**\[20220126\]** If you prefer flake8+isort instead of
+[ruff](https://github.com/charliermarsh/ruff), use branch `flake8-isort`.
+
 ## Pre-requisite
 
-You need to have the cli `cookiecutter` available in your Python environment.
-Please see its installation instructions
-[here](https://cookiecutter.readthedocs.io/en/latest/installation.html).
+You need to have the cli `cookiecutter` available in your Python environment. Please see its
+installation instructions [here](https://cookiecutter.readthedocs.io/en/latest/installation.html).
 
 ## Usage
 
-To generate a directory structure for a new data science project, you can run
-the following commands in your Python environment.
+To generate a directory structure for a new data science project, you can run the following commands
+in your Python environment.
 
 ```bash
 cookiecutter https://github.com/aws-samples/python-data-science-template
@@ -62,36 +66,35 @@ By using this template, your data science project is auto-generated as follows:
 
 This structure has been used in a few other places as well, e.g.,
 [aws-samples/sagemaker-rl-energy-storage-system](https://github.com/aws-samples/sagemaker-rl-energy-storage-system)
-and [aws-samples/amazon-sagemaker-gluonts-entrypoint](https://github.com/aws-samples/amazon-sagemaker-gluonts-entrypoint).
-Feel free to look at those repositories and observe the project structure
-documented in their `README.md`.
+and
+[aws-samples/amazon-sagemaker-gluonts-entrypoint](https://github.com/aws-samples/amazon-sagemaker-gluonts-entrypoint).
+Feel free to look at those repositories and observe the project structure documented in their
+`README.md`.
 
 ## Related Projects
 
-Ready to start your new data science project on AWS? If so, you may want to
-check on these related samples.
+Ready to start your new data science project on AWS? If so, you may want to check on these related
+samples.
 
-1. Do you like to work on EC2 instances? Then why don't you check out these
-   [simple template](https://github.com/aws-samples/ec2-data-science-vim-tmux-zsh/)
-   to setup basic Vim, Tmux, Zsh for the Deep Learning AMI Amazon Linux 2 for
-   data scientsts.
+1. Do you like to work on EC2 instances? Then why don't you check out these [simple
+   template](https://github.com/aws-samples/ec2-data-science-vim-tmux-zsh/) to setup basic Vim,
+   Tmux, Zsh for the Deep Learning AMI Amazon Linux 2 for data scientsts.
 
 2. Do you like to work on SageMaker classic notebook instances? Then why don't you check out the
-   [one-liner customization command](https://github.com/aws-samples/amazon-sagemaker-notebook-instance-customization)
-   that quickly applies common tweaks on a fresh (i.e., newly created or
-   rebooted) SageMaker classic notebook instance, to make the notebook instance
-   a little bit more ergonomic for prolonged usage.
+   [one-liner customization
+   command](https://github.com/aws-samples/amazon-sagemaker-notebook-instance-customization) that
+   quickly applies common tweaks on a fresh (i.e., newly created or rebooted) SageMaker classic
+   notebook instance, to make the notebook instance a little bit more ergonomic for prolonged usage.
 
-3. Are you loooking for a quickstart to accelerate the delivery of custom ML
-   solutions to production, without having to make too many design choices? Then
-   why don't you check out the [ML Max repo](https://github.com/awslabs/mlmax/)
-   which includes templates for four pillars: training pipeline, inference
-   pipeline, development environment and data management/ETL.
+3. Are you loooking for a quickstart to accelerate the delivery of custom ML solutions to
+   production, without having to make too many design choices? Then why don't you check out the [ML
+   Max repo](https://github.com/awslabs/mlmax/) which includes templates for four pillars: training
+   pipeline, inference pipeline, development environment and data management/ETL.
 
-4. Are you tired of repeatedly writing the same boilerplate codes for common,
-   tactical data science tasks? Then why don't you check on the
-   [SageMaker meta-entrypoint utilities](https://github.com/aws-samples/amazon-sagemaker-entrypoint-utilities),
-   and the [smallmatter library](https://github.com/aws-samples/smallmatter-package).
+4. Are you tired of repeatedly writing the same boilerplate codes for common, tactical data science
+   tasks? Then why don't you check on the [SageMaker meta-entrypoint
+   utilities](https://github.com/aws-samples/amazon-sagemaker-entrypoint-utilities), and the
+   [smallmatter library](https://github.com/aws-samples/smallmatter-package).
 
 ## Security
 
