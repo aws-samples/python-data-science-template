@@ -141,3 +141,11 @@ spark-warehouse
 *.ckpt.*
 *.h5
 *.tfevents.*
+
+# Neuron-SDK >= 2.14
+log-neuron-cc.txt
+all_metrics.csv
+neuronxcc-*/
+
+# WanDb temp files or offline artifacts
+wandb/
