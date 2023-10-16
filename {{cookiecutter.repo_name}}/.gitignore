@@ -149,3 +149,6 @@ neuronxcc-*/
 
 # WanDb temp files or offline artifacts
 wandb/
+
+# Enroot squashfile
+.sqsh
