@@ -152,3 +152,7 @@ wandb/
 
 # Enroot squashfile
 *.sqsh
+
+# Slurm
+slurm-*.out
+slurm-*.err
