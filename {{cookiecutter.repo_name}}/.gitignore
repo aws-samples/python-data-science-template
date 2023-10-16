@@ -151,4 +151,4 @@ neuronxcc-*/
 wandb/
 
 # Enroot squashfile
-.sqsh
+*.sqsh
