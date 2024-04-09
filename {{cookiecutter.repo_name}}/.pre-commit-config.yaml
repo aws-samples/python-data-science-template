@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.6.0
     hooks:
       - id: check-json
         exclude: .vscode
@@ -14,8 +14,8 @@ repos:
       - id: detect-private-key
       - id: end-of-file-fixer
       - id: trailing-whitespace
-        # See: https://github.com/c4urself/bump2version/issues/58
-        exclude: setup.cfg
+        # For setup.cfg exclusion, see https://github.com/c4urself/bump2version/issues/58
+        exclude: '^setup.cfg$|.*\.diff$|.*\.patch$'
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     rev: "v0.0.235"
     hooks:
